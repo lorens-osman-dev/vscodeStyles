@@ -1,0 +1,16 @@
+{
+	"name": "new-style",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"scripts": {
+		"build": "bun build src/style.ts --outdir=dist ",
+		"watch": "bun build src/style.ts --outdir=dist --watch"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}
