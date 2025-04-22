@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     // Environment setup & latest features
-    "lib": ["ESNext"],
-    "target": "ESNext",
+
+    "target": "ES2016", // Or newer
     "module": "ESNext",
+    "lib": ["ES2016", "DOM", "DOM.Iterable"],
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,

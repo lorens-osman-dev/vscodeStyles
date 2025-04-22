@@ -1,0 +1,98 @@
+.dash {
+  font-style: normal !important;
+  position: relative;
+  color: #414e58 !important;
+}
+
+.dash:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 75px;
+  background-color: #414e58;
+  top: 50%;
+  right: -75px;
+  transform: translate(10px, -50%);
+}
+
+/* //#  */
+.sharp {
+  font-style: normal !important;
+  position: relative;
+  color: #414e58 !important;
+}
+
+.sharp:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 175px;
+  background-color: #414e58;
+  top: 50%;
+  right: -175px;
+  transform: translate(10px, -50%);
+}
+
+
+/* //?  */
+div.view-line:has(.qusestitMark) {
+  overflow: hidden;
+}
+
+.qusestitMark {
+  font-style: normal !important;
+  position: relative;
+  color: #e76d3a !important;
+  background-color: #25282f;
+  border: 1px solid #25282f;
+  padding-right: 10px;
+  /* border-top-left-radius: 6px;
+border-bottom-left-radius: 6px; */
+}
+
+.qusestitMark:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 18px;
+  width: 8px;
+  background-color: #e76d3a;
+  top: 50%;
+  right: -6px;
+  transform: translate(0, -50%);
+}
+
+/* //=  */
+.equal {}
+
+/* //_   */
+.underscore {
+  font-style: normal !important;
+  position: relative;
+  color: #080c13 !important;
+  background-color: #414e58;
+  border: 1px solid #414e58;
+  padding-right: 10px;
+}
+
+/* //:   */
+.sayMark {
+  font-style: normal !important;
+  position: relative;
+  color: #414e58 !important;
+  border: 1px solid #414e58;
+  padding-right: 10px;
+}
+
+/* //.  */
+.dot {
+  font-style: normal !important;
+  position: relative;
+  color: #dedede !important;
+  background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+  background: linear-gradient(to right, #00f26199, #0576e6a2);
+  color: transparent;
+
+}

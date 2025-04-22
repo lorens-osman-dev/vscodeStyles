@@ -1,0 +1,8 @@
+/* Sidebar bigger title */
+.monaco-workbench .part.sidebar>.title>.title-label h2,
+.monaco-workbench .part.auxiliarybar>.title>.title-label h2 {
+  color: var(--vscode-sideBarTitle-foreground) !important;
+  text-transform: none !important;
+  font-size: 15px;
+  font-weight: 800;
+}

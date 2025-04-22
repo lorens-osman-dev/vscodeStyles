@@ -1,16 +1,20 @@
 {
-	"name": "new-style",
-	"module": "index.ts",
-	"type": "module",
-	"private": true,
-	"devDependencies": {
-		"@types/bun": "latest"
-	},
-	"scripts": {
-		"build": "bun build src/style.ts --outdir=jsDist ",
-		"watch": "bun build src/style.ts --outdir=jsDist --watch"
-	},
-	"peerDependencies": {
-		"typescript": "^5"
-	}
+  "name": "new-style",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "build": "bun build src/ts/style.ts --outdir=jsDist ",
+    "watch": "bun build src/ts/style.ts --outdir=jsDist --watch",
+    "sass": "sass -w ./src/sass/style.scss ./cssDist/style.css "
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "sass": "^1.87.0"
+  }
 }

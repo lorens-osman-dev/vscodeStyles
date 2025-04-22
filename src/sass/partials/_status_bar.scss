@@ -1,0 +1,23 @@
+/* colored icons in statusbar */
+.part.statusbar {
+  .codicon-error {
+    color: #ff3377 !important;
+  }
+
+  .codicon-warning {
+    color: #cccc00 !important;
+  }
+
+  .codicon-git-branch {
+    color: #9988ff !important;
+  }
+
+  .codicon-sync {
+    color: #11cc99 !important;
+  }
+
+  .codicon-bell,
+  .codicon-bell-dot {
+    color: #0e80c0 !important;
+  }
+}
