@@ -24,7 +24,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
-    "outDir": "dist",
+    "outDir": "jsDest",
     "baseUrl": ".",
   }
 }
