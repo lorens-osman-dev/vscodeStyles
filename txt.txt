@@ -1,0 +1,4 @@
+  "vscode_custom_css.imports": [
+    "file://${userHome}/lorens_linux_config/vs_code_settings/newStyle/cssDist/style.css",
+    "file://${userHome}/lorens_linux_config/vs_code_settings/newStyle/jsDist/style.js",
+  ],

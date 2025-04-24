@@ -1,4 +1,4 @@
-// src/style.ts
+// src/ts/style.ts
 //! go to house
 document.addEventListener("DOMContentLoaded", () => {
   const commentColor = "blue";
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         allInnerSpans.forEach((innerSpan) => {
           if (isComment) {
             if (innerSpan.style.color !== commentColor) {
-              innerSpan.style.color = commentColor;
               if (commentType) {
                 innerSpan.classList.add(commentType);
               }

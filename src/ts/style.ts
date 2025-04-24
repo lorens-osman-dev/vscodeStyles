@@ -32,31 +32,38 @@ document.addEventListener("DOMContentLoaded", () => {
         targetNode instanceof DocumentFragment
       )
     ) {
-      console.warn("Target node for highlightCommentLines is not an Element, Document, or DocumentFragment.");
+      console.warn(
+        "Target node for highlightCommentLines is not an Element, Document, or DocumentFragment.",
+      );
       return;
     }
 
     // Select all elements with the class 'view-line' within the target node
-    const viewLines: NodeListOf<HTMLElement> = targetNode.querySelectorAll<HTMLElement>(".view-line");
+    const viewLines: NodeListOf<HTMLElement> =
+      targetNode.querySelectorAll<HTMLElement>(".view-line");
 
     viewLines.forEach((line: HTMLElement) => {
       // Find the first inner span (span > span) within the current line
-      const firstInnerSpan: HTMLElement | null = line.querySelector<HTMLElement>("span > span");
+      const firstInnerSpan: HTMLElement | null =
+        line.querySelector<HTMLElement>("span > span");
 
       // Check if the first inner span exists
       if (firstInnerSpan) {
         // Check if its trimmed text content starts with '//'
-        const isComment: boolean = (firstInnerSpan.textContent ?? "").trim().startsWith("//");
+        const isComment: boolean = (firstInnerSpan.textContent ?? "")
+          .trim()
+          .startsWith("//");
         const commentType = getCommentType(firstInnerSpan.textContent ?? "");
         // Find ALL inner spans within this line
-        const allInnerSpans: NodeListOf<HTMLElement> = line.querySelectorAll<HTMLElement>("span > span");
+        const allInnerSpans: NodeListOf<HTMLElement> =
+          line.querySelectorAll<HTMLElement>("span > span");
 
         // Iterate through all inner spans in the line
         allInnerSpans.forEach((innerSpan: HTMLElement) => {
           if (isComment) {
             // If it's a comment line, set the color if it's not already set
             if (innerSpan.style.color !== commentColor) {
-              innerSpan.style.color = commentColor;
+              //innerSpan.style.color = commentColor;
               if (commentType) {
                 innerSpan.classList.add(commentType);
               }
@@ -79,13 +86,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Select the target node to observe (the editor container)
   // Fallback to document.body if the specific selector isn't found
   // Use type assertion as we provide a fallback guarantee
-  const targetEditor: Element | Document = document.querySelector(editorSelector) || document.body;
+  const targetEditor: Element | Document =
+    document.querySelector(editorSelector) || document.body;
 
   // Options for the observer (watch for additions/removals of nodes in the subtree)
   const config: MutationObserverInit = { childList: true, subtree: true };
 
   // Callback function to execute when mutations are observed
-  const callback: MutationCallback = (mutationsList: MutationRecord[], observer: MutationObserver) => {
+  const callback: MutationCallback = (
+    mutationsList: MutationRecord[],
+    observer: MutationObserver,
+  ) => {
     // For simplicity, re-run highlighting on the whole editor on any change.
     // Optimization: Could iterate through mutationsList and target only changed nodes.
     highlightCommentLines(targetEditor);
@@ -126,7 +137,11 @@ const commentTypes = {
  */
 function getCommentType(commentTextOp: string): string | undefined {
   const trimmed = commentTextOp.trim();
-  if (commentTextOp === "" || commentTextOp.trim() === "" || commentTextOp.trim().length < 3) {
+  if (
+    commentTextOp === "" ||
+    commentTextOp.trim() === "" ||
+    commentTextOp.trim().length < 3
+  ) {
     return;
   }
   if (trimmed.length < 3) return;
