@@ -97,6 +97,14 @@ div.view-line:has(.qusestitMark) {
   color: transparent;
 }
 
+/* //!  */
+.imark {
+  font-style: normal !important;
+  position: relative;
+  color: #e21b1b !important;
+  background: rgba(149, 20, 20, 0.1294117647);
+}
+
 .slider {
   position: absolute !important;
   right: 1px !important;
