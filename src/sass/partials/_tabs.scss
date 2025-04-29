@@ -1,8 +1,47 @@
+// .monaco-workbench {
+//   --accent-color: #16b673;
+
+//   .tabs-and-actions-container {
+//     border-right: 1px solid #111827;
+
+//     .editor-actions {
+//       align-self: center;
+//     }
+
+//     .tabs-container {
+//       padding: 7px 0px;
+
+//       >* {
+//         border-radius: 7px !important;
+//         border: 1px solid transparent !important;
+//         margin: 0px 7px !important;
+//       }
+
+//       .tab.selected {
+//         border-radius: 7px !important;
+//         background-color: rgb(from var(--accent-color) r g b / 0.22) !important;
+//         border: 1px solid rgb(from var(--accent-color) r g b / 0.0) !important;
+//         box-shadow: rgba(0, 0, 0, 0.2) 0px 9px 2px -5px, rgba(0, 0, 0, 0.25) 0px 0px 10px -5px !important;
+
+//       }
+
+//       .tab-border-top-container,
+//       .tab-border-bottom-container {
+//         display: none !important;
+//       }
+//     }
+//   }
+
+
+// }
 .monaco-workbench {
   --accent-color: #16b673;
+  --fore-color: rgb(244, 240, 255);
+  --fore-color-rgb: 45, 183, 133;
+  --bg-color: #02020e;
 
   .tabs-and-actions-container {
-    border-right: 1px solid #111827;
+    background-color: #111827;
 
     .editor-actions {
       align-self: center;
@@ -10,18 +49,46 @@
 
     .tabs-container {
       padding: 7px 0px;
+      background-color: #111827;
 
       >* {
-        border-radius: 7px !important;
-        border: 1px solid transparent !important;
         margin: 0px 7px !important;
+        transition: background-color 500ms;
+
       }
 
       .tab.selected {
-        border-radius: 7px !important;
-        background-color: rgb(from var(--accent-color) r g b / 0.22) !important;
-        border: 1px solid rgb(from var(--accent-color) r g b / 0.0) !important;
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 9px 2px -5px, rgba(0, 0, 0, 0.25) 0px 0px 10px -5px !important;
+        color: var(--fore-color);
+        z-index: 10;
+
+        background: var(--bg-color);
+        box-shadow: inset 0px 0px 30px 10px rgba(var(--fore-color-rgb), 0.1),
+          inset 0px 0px 4px 2px rgba(var(--fore-color-rgb), 0.1);
+
+        background-image: url("data:image/png;base64,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");
+
+        &::before {
+          content: '';
+          position: absolute;
+
+          left: 0px;
+
+          height: 100%;
+          width: 1px;
+          background-color: #34d399;
+
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+
+          right: 0px;
+
+          height: 100%;
+          width: 1px;
+          background-color: #34d399;
+        }
 
       }
 
@@ -33,4 +100,8 @@
   }
 
 
+}
+
+.monaco-workbench .part.editor>.content .editor-group-container.active>.title .tabs-container>.tab:not(.selected):hover {
+  background-color: rgba(45, 183, 133, 0.1) !important;
 }
