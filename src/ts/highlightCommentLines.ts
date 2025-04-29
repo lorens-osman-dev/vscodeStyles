@@ -1,33 +1,44 @@
 // Define the color for comments
 const commentColor: string = "teal";
 
+// Comment type indicators mapped by symbolic character
 const commentTypes = {
-  qusestitMark: "?",
+  questionMark: "?",
   dash: "-",
   equal: "=",
   underscore: "_",
-  sayMark: ":",
+  colon: ":",
   dot: ".",
   sharp: "#",
   imark: "!",
+  plus: "+",
+  startRegion: "//#region",
+  endRegion: "//#endregion",
 };
 
+// Counter for how many times highlighting function is triggered
+
 /**
- * Detects comment type based on the third character of the comment.
- * @param commentTextOp - The full comment string (e.g., "//- my comment")
- * @returns {string | undefined} - Returns the key of the matched comment type or undefined.
+ * Detects the comment type from a line of code based on a specific character pattern.
+ * Supports region markers and symbolic comment prefixes.
+ *
+ * @param commentTextOp - A full comment line (e.g., "//- some comment")
+ * @returns The key of the detected comment type or `undefined` if not matched.
  */
 function getCommentType(commentTextOp: string): string | undefined {
   const trimmed = commentTextOp.trim();
-  if (commentTextOp === "" || commentTextOp.trim() === "" || commentTextOp.trim().length < 3) {
-    return;
-  }
+
   if (trimmed.length < 3) return;
+
+  // Handle special region markers
+  if (trimmed.startsWith(commentTypes.startRegion)) return "startRegion";
+  if (trimmed.startsWith(commentTypes.endRegion)) return "endRegion";
 
   const thirdChar = trimmed[2];
 
-  for (const [key, value] of Object.entries(commentTypes)) {
-    if (thirdChar === value) {
+  // Match symbolic comment types by their corresponding symbol
+  for (const [key, symbol] of Object.entries(commentTypes)) {
+    if (thirdChar === symbol) {
       return key;
     }
   }
@@ -38,7 +49,11 @@ function getCommentType(commentTextOp: string): string | undefined {
  * Finds lines starting with '//' and highlights all inner spans within that line.
  * @param {Node} targetNode - The node to scan (usually the editor container or document body).
  */
+let call_highlightCommentLines_nmber = 0;
 export default function highlightCommentLines(targetNode: Node): void {
+  call_highlightCommentLines_nmber++;
+  // console.log(" call_highlightCommentLines_nmber:", call_highlightCommentLines_nmber);
+
   // Ensure the targetNode has the querySelectorAll method (like Element or Document)
   if (
     !(

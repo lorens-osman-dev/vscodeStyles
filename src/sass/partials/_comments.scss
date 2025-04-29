@@ -37,11 +37,11 @@
 
 
 /* //?  */
-div.view-line:has(.qusestitMark) {
+div.view-line:has(.questionMark) {
   overflow: hidden;
 }
 
-.qusestitMark {
+.questionMark {
   font-style: normal !important;
   position: relative;
   color: #e76d3a !important;
@@ -52,7 +52,7 @@ div.view-line:has(.qusestitMark) {
 border-bottom-left-radius: 6px; */
 }
 
-.qusestitMark:last-child::after {
+.questionMark:last-child::after {
   content: "";
   display: block;
   position: absolute;
@@ -65,7 +65,49 @@ border-bottom-left-radius: 6px; */
 }
 
 /* //=  */
-.equal {}
+
+.view-line span:has(.equal) {
+  border-bottom: 1px solid #313c46;
+  border-top: 1px solid #313c46;
+  height: 25px !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.equal {
+  font-style: normal !important;
+}
+
+/* //+  */
+
+.view-line span:has(.plus) {
+  position: relative;
+  --space: 300px;
+  font-style: normal !important;
+  border: 1px solid #313c46;
+  padding-right: 10px;
+  margin-left: var(--space);
+  display: inline-flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: var(--space);
+    border: 1px solid #313c46;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+
+  }
+}
+
+.plus {
+  font-style: normal !important;
+}
 
 /* //_   */
 .underscore {
@@ -78,7 +120,7 @@ border-bottom-left-radius: 6px; */
 }
 
 /* //:   */
-.sayMark {
+.colon {
   font-style: normal !important;
   position: relative;
   color: #414e58 !important;
@@ -103,4 +145,53 @@ border-bottom-left-radius: 6px; */
   position: relative;
   color: #e21b1b !important;
   background: #95141421
+}
+
+/* //#region  */
+.view-line span:has(.startRegion) {
+  position: relative;
+  font-style: normal !important;
+  border: 1px solid #313c46;
+  padding-right: 10px;
+
+
+}
+
+.startRegion {
+  font-style: normal !important;
+  position: relative;
+  color: #414e58 !important;
+}
+
+.startRegion:last-child::after {
+  content: "";
+  display: block;
+  height: 0px;
+  width: var(--space);
+  border: 1px solid #313c46;
+  position: absolute;
+  width: 250px;
+  top: 50%;
+
+  right: -11px;
+  transform: translate(100%, -100%);
+}
+
+/* //#endregion  */
+.endRegion {
+  font-style: normal !important;
+  position: relative;
+  color: #414e58 !important;
+}
+
+.endRegion:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 75px;
+  background-color: #414e58;
+  top: 50%;
+  right: -75px;
+  transform: translate(10px, -50%);
 }

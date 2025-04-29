@@ -1,9 +1,11 @@
 import highlightCommentLines from "./highlightCommentLines";
 import tabsDot from "./tabsDot";
 
+let call_oserver_nmber = 0;
 document.addEventListener("DOMContentLoaded", () => {
   // Define the target class for the editor container (adjust if needed)
-  const editorSelector: string = ".monaco-editor"; // Common class for Monaco Editor, adjust if yours is different
+  const editorSelector: string = ".view-lines"; // Common class for Monaco Editor, adjust if yours is different
+  // const editorSelector: string = ".monaco-editor"; // Common class for Monaco Editor, adjust if yours is different
 
   // --- MutationObserver Setup ---
 
@@ -20,7 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // For simplicity, re-run highlighting on the whole editor on any change.
     // Optimization: Could iterate through mutationsList and target only changed nodes.
     highlightCommentLines(targetEditor);
-    tabsDot(targetEditor);
+    //tabsDot(targetEditor);
+    call_oserver_nmber++;
+    // console.log(" call_oserver_nmber:", call_oserver_nmber);
   };
 
   // Create an observer instance linked to the callback function
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Initial Highlighting ---
   // Run the highlighting function once initially to style existing lines
   highlightCommentLines(targetEditor);
-  tabsDot(targetEditor);
+  // tabsDot(targetEditor);
   // Optional: Disconnect the observer when it's no longer needed
   // observer.disconnect();
 });

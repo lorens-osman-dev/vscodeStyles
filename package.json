@@ -7,9 +7,9 @@
     "@types/bun": "latest"
   },
   "scripts": {
-    "build": "bun build src/ts/style.ts --outdir=jsDist ",
-    "watch": "bun build src/ts/style.ts --outdir=jsDist --watch",
-    "sass": "sass -w ./src/sass/style.scss ./cssDist/style.css "
+    "build": "bun build src/ts/style.ts --outdir=dist ",
+    "ts": "bun build src/ts/style.ts --outdir=dist --watch",
+    "sass": "sass -w ./src/sass/style.scss ./dist/style.css "
   },
   "peerDependencies": {
     "typescript": "^5"
