@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // For simplicity, re-run highlighting on the whole editor on any change.
     // Optimization: Could iterate through mutationsList and target only changed nodes.
     highlightCommentLines(targetEditor);
-    //tabsDot(targetEditor);
+    tabsDot(targetEditor);
     call_oserver_nmber++;
     // console.log(" call_oserver_nmber:", call_oserver_nmber);
   };
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Initial Highlighting ---
   // Run the highlighting function once initially to style existing lines
   highlightCommentLines(targetEditor);
-  // tabsDot(targetEditor);
+  tabsDot(targetEditor);
   // Optional: Disconnect the observer when it's no longer needed
   // observer.disconnect();
 });

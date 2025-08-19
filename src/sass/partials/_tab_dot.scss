@@ -1,0 +1,8 @@
+// .codicon-close::before {
+//   color: attr(data-label-color type(<color>), green); /* Fallback to gray if attribute is missing/invalid */
+// }
+
+.codicon-close::before {
+  color: #{'attr(data-label-color type(<color>), gray)'};
+  // sass dose not support attr() so we used Interpolation 
+}
